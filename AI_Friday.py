@@ -31,7 +31,7 @@ def recordAudio():
     
     return data
  
-def dekdoydev(data):
+def Friday(data):
     if "Friday" in data:
         speak("สวัสดีคะนายท่าน")
 
@@ -51,9 +51,10 @@ def dekdoydev(data):
     if "เล่าเรื่องตลกให้ฟังหน่อย" in data:
         speak("ไม่ได้เป็นคนตลกค่ะ ถ้าจะฟังเรื่องละ 20 บาทค่ะ")
 
-    if "เปิด Excel หน่อย" in data:
+    if "เปิด Excel" in data:
         speak("ได้เลยค่ะ Excel นะคะ")
         os.system("start Excel")
+        data=""
 
     if "แผนที่ประเทศไทย" in data:
         data = data.split(" ")
@@ -64,7 +65,38 @@ def dekdoydev(data):
         data = data.split(" ")
         speak("รอสักครู่คะนายท่าน เดี๋ยวเปิดข่าวโควิทช์ให้ค่ะ")
         os.system("start https://covid-19.kapook.com/")
-    
+
+    if "ค้นหา" in data:
+        speak("ให้คนหาอะไรค่ะนายท่าน")
+        data = recordAudio()
+        speak("ดำเนินการค้นหา"+data)
+        os.system("start https://www.google.com/search?q="+data)
+        data=""
+
+
+    if "ปิด Browser" in data:        
+        speak("กำลังดำเนินการปิด Browser")
+        os.system("taskkill /im chrome.exe /f")
+        os.system("taskkill /im msedge.exe /f")
+        data = ""
+        speak("ปิด Browser แล้ว")
+
+
+    if "เปิด netflix"  in data:        
+        speak("ดำเนินการเปิด NetFlix")
+        os.system("start https://www.Netflix.com/")
+        speak("เปิด Excel แล้ว")
+        data=""
+
+    if "ปิด Excel" in data:
+        speak("ดำเนินการปิด Excel")
+        os.system("taskkill /im excel.exe /f")  
+        speak("ปิด Excel แล้ว")
+
+    if "ปิดระบบ" in data:
+        speak("ดำเนินการปิดระบบ")
+        speak("Bye bye คะ")
+        exit()
 # Starting Conversation
 
 time.sleep(2)
@@ -72,4 +104,4 @@ speak("สวัสดีค่ะนายท่านมีอะไรให�
 
 while 1:
     data = recordAudio()
-    dekdoydev(data)
+    Friday(data)
