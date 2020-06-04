@@ -70,7 +70,8 @@ def Friday(data):
         speak("ให้คนหาอะไรค่ะนายท่าน")
         data = recordAudio()
         speak("ดำเนินการค้นหา"+data)
-        os.system("start https://www.google.com/search?q="+data)
+        os.syst
+        em("start https://www.google.com/search?q="+data)
         data=""
 
 
